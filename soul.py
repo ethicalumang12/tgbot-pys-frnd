@@ -10,6 +10,21 @@ from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, InlineKeyboard
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters, ConversationHandler, CallbackQueryHandler
 from github import Github, GithubException
 
+from flask import Flask
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+app = Application.builder().token(BOT_TOKEN).build()
+app_web = Flask(__name__)
+
+@app_web.route("/")
+def home():
+    return "Bot is running"
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    app_web.run(host="0.0.0.0", port=port)
+
+# Start web server in thread
+threading.Thread(target=run_web).start()
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
