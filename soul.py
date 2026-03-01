@@ -32,7 +32,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BOT_TOKEN = "7877247981:AAFIHSOHdAtH7xypdyiL5aL8BBkvOdZ2N7U"
+BOT_TOKEN = "7232715296:AAErtmRhJ0VfmB3K2UuYCSD545CzbmfTS18"
 YML_FILE_PATH = ".github/workflows/main.yml"
 BINARY_FILE_NAME = "soul"
 BINARY_STORAGE_PATH = "stored_binary.bin"
